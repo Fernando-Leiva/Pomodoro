@@ -1,0 +1,30 @@
+
+.containerDateTimeDisplay{
+    display: flex;
+    flex: 1;
+
+}
+.timerdiv{
+  display: flex;
+  flex: 1;
+  padding-inline: 36%;
+}
+.h1{
+    margin-top: 12px;
+}
+.box{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.firstCol{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.secondCol{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}

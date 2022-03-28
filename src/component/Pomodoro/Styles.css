@@ -1,0 +1,10 @@
+.containerPomodoro{
+    display: flex;
+    flex: 1;
+}
+.button{
+    margin-top: 20px;
+    display: 1;
+    flex: 1;
+    
+}
