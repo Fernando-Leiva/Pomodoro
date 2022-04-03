@@ -2,6 +2,7 @@
 .containerDateTimeDisplay{
     display: flex;
     flex: 1;
+    align-self: flex-start;
 
 }
 .timerdiv{

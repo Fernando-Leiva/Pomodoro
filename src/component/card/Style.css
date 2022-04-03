@@ -1,0 +1,11 @@
+.containerCard{
+    display: flex;
+    flex: 1;
+    width: 200px;
+    background-color: beige;
+    border:  5px 5px 5px 5px;
+    border-radius: 15%;
+    border-color: black black black black;
+    text-align: center;
+    margin-top: 10px;
+}

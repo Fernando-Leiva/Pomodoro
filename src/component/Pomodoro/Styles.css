@@ -3,8 +3,19 @@
     flex: 1;
 }
 .button{
-    margin-top: 20px;
-    display: 1;
-    flex: 1;
+    display: flex;
+    margin-bottom: 20px;
+    align-self:flex-end;
     
+}
+.timer{
+    display: flex;
+    flex: 1;
+    background-image: url('pomodoro.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.history{
+    background-color: rgb(223, 191, 148);
 }
