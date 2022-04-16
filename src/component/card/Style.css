@@ -1,11 +1,14 @@
 .containerCard{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     flex: 1;
     width: 200px;
+    height: 100px;
     background-color: beige;
-    border:  5px 5px 5px 5px;
-    border-radius: 15%;
-    border-color: black black black black;
+    border: 5px solid black;
+    border-radius: 15PX;
     text-align: center;
     margin-top: 10px;
 }
