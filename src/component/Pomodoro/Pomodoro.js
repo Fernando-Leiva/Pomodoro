@@ -4,6 +4,15 @@ import { Card } from "../card/Card";
 import DateTimeDisplay from "../Timer/DateTimeDisplay";
 import "./Styles.css"
 import moment from 'moment';
+import { 
+    INTERVAL_IT_LAST_POMODORO_SECONDS,
+    INTERVAL_IT_LAST_SHORT_BREAK_SECONDS,
+    MINUTES_LAST_LONG_BREAK, 
+    MINUTES_LAST_POMODORO, 
+    MINUTES_LAST_SHORT_BREAK, 
+    SECONDS,
+    INTERVAL_IT_LAST_LONG_BREAK_SECONDS
+} from "../helpers/utils";
 
 
 
@@ -19,10 +28,10 @@ export const Pomodoro = () => {
                     if(seconds > 0){
                         setSeconds(previousState => previousState-1)
                     }else if(minutes > 0){
-                        setSeconds(60)
+                        setSeconds(SECONDS)
                         setMinutes(previousState => previousState-1)
                     }else{
-                        setSeconds(60)
+                        setSeconds(SECONDS)
                     }
                     setintervalSession(previousState => previousState-1)
                 }
@@ -31,7 +40,7 @@ export const Pomodoro = () => {
     },[intervalSession])
 
     const initSession = () => {
-        setintervalSession(120)
+        setintervalSession(INTERVAL_IT_LAST_POMODORO_SECONDS)
         setHistory(previousState => {
             if(previousState===[]){
                 return ['Begins Pomodoro at '.concat(moment().format("dddd, MMMM Do YYYY, h:mm:ss a").toString())]
@@ -40,12 +49,12 @@ export const Pomodoro = () => {
                 return previousState.concat(['Begins Pomodoro at '.concat(moment().format("dddd, MMMM Do YYYY, h:mm:ss a").toString())])
             }     
         })
-        setSeconds(60)
-        setMinutes(1)
+        setSeconds(SECONDS)
+        setMinutes(MINUTES_LAST_POMODORO)
 
     }
     const initShortBreak = () => {
-        setintervalSession(300)
+        setintervalSession(INTERVAL_IT_LAST_SHORT_BREAK_SECONDS)
         setHistory(previousState => {
             if(previousState===[]){
                return ['Begins Short Break at '.concat(moment().format("dddd, MMMM Do YYYY, h:mm:ss a").toString())]
@@ -55,11 +64,11 @@ export const Pomodoro = () => {
             }
 
         })
-        setSeconds(60)
-        setMinutes(4)
+        setSeconds(SECONDS)
+        setMinutes(MINUTES_LAST_SHORT_BREAK)
     }
     const initLongBreak = () => {
-        setintervalSession(900)
+        setintervalSession(INTERVAL_IT_LAST_LONG_BREAK_SECONDS)
         setHistory(previousState => {
             if(previousState===[]){
                return ['Begins Long Break at '.concat(moment().format("dddd, MMMM Do YYYY, h:mm:ss a").toString())]
@@ -69,16 +78,16 @@ export const Pomodoro = () => {
             }
 
         })
-        setSeconds(60)
-        setMinutes(14)
+        setSeconds(SECONDS)
+        setMinutes(MINUTES_LAST_LONG_BREAK)
     }
 
     return(
-        <div className="containerPomodoro " >
+        <div className="containerPomodoro">
             <div className="col timer"  >
                 <DateTimeDisplay minutes={minutes} seconds={seconds}/>
                 <div className=" button">
-                        <Button variant="success" size="sm" onClick={initSession}>
+                        <Button variant="success" size="sm"  onClick={initSession}>
                             Start Pomodoro 
                         </Button>{' '}
                         <Button variant="primary" size="sm" onClick={initShortBreak}>
@@ -90,13 +99,12 @@ export const Pomodoro = () => {
                 </div>
                    
             </div>
-            <div className="col history" role='log'> 
+            <section className="col history" role='log'> 
                 {history.length >= 1 ? 
-                        history.map((item,index) => <div >  <Card  key={index}>{item}</Card> </div> )
+                        history.map((item,index) => <div > <Card className='card' key={index}>{item}</Card> </div> )
                         :<h2>There is no activity yet started.. </h2>
                 }
-            </div>
-           
+            </section>       
         </div>
     )
 }

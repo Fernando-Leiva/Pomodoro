@@ -5,17 +5,26 @@
 .button{
     display: flex;
     margin-bottom: 20px;
-    align-self:flex-end;
-    
+    align-self:flex-end;    
+}
+.containerPomodoro > div > div {
+    display: flex;
+    margin-top: 35px;
+    justify-content: center;
+    align-items: flex-end;
 }
 .timer{
-    display: flex;
-    flex: 1;
     background-image: url('pomodoro.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position:bottom;
 }
-.history{
+.containerPomodoro > section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     background-color: rgb(223, 191, 148);
+}
+.containerPomodoro > section > div {
+    padding-inline: 10px;
 }
